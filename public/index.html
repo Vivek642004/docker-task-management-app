@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>TaskFlow Dashboard</title>
+
+<link rel="stylesheet" href="css/styles.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <aside class="sidebar">
+
+        <div class="logo">
+            <i class="fa-solid fa-list-check"></i>
+            <h2>TaskFlow</h2>
+        </div>
+
+        <p class="tagline">
+            Stay Organized, Stay Productive
+        </p>
+
+        <ul>
+
+            <li class="active">
+                <i class="fa-solid fa-house"></i>
+                Dashboard
+            </li>
+
+            <li>
+                <i class="fa-solid fa-list"></i>
+                All Tasks
+            </li>
+
+            <li>
+                <i class="fa-solid fa-plus"></i>
+                Add Task
+            </li>
+
+            <li>
+                <i class="fa-solid fa-check"></i>
+                Completed
+            </li>
+
+            <li>
+                <i class="fa-solid fa-clock"></i>
+                Pending
+            </li>
+
+        </ul>
+
+    </aside>
+
+    <main class="content">
+
+        <header class="topbar">
+
+            <div>
+
+                <h1>Dashboard 👋</h1>
+
+                <p>Welcome back! Here's what's happening with your tasks.</p>
+
+            </div>
+
+            <div class="top-actions">
+
+                <input
+                type="text"
+                placeholder="Search tasks..."
+                class="search">
+                <button id="themeBtn">🌙</button>
+
+                <i class="fa-regular fa-bell"></i>
+
+                <button class="btn">
+                    + Add Task
+                </button>
+
+            </div>
+
+        </header>
+
+        <section class="cards">
+
+            <div class="card">
+                <i class="fa-solid fa-list-check blue"></i>
+                <h2>12</h2>
+                <p>Total Tasks</p>
+            </div>
+
+            <div class="card">
+                <i class="fa-solid fa-check green"></i>
+                <h2>7</h2>
+                <p>Completed</p>
+            </div>
+
+            <div class="card">
+                <i class="fa-solid fa-clock orange"></i>
+                <h2>5</h2>
+                <p>Pending</p>
+            </div>
+
+            <div class="card">
+                <i class="fa-regular fa-calendar purple"></i>
+                <h2>3</h2>
+                <p>Today</p>
+            </div>
+
+        </section>
+
+        <div class="task-box">
+
+    <div class="task-header">
+        <h2>All Tasks</h2>
+        <button class="clear-btn">Clear Completed</button>
+    </div>
+<div class="task-item">
+
+    <input type="checkbox" checked>
+
+    <div class="task-info">
+        <h3>Learn Docker Basics</h3>
+        <p>Understand containers, images and volumes</p>
+    </div>
+
+    <span class="status completed">Completed</span>
+
+    <span class="date">
+        <i class="fa-regular fa-calendar"></i>
+        May 20, 2024
+    </span>
+
+    <div class="actions">
+        <button><i class="fa-solid fa-pen"></i></button>
+        <button><i class="fa-solid fa-trash"></i></button>
+    </div>
+
+</div>
+
+<div class="task-item">
+
+    <input type="checkbox">
+
+    <div class="task-info">
+        <h3>Build Task Management App</h3>
+        <p>Create a simple task app with Node.js</p>
+    </div>
+
+    <span class="status pending">Pending</span>
+
+    <span class="date">
+        <i class="fa-regular fa-calendar"></i>
+        May 25, 2024
+    </span>
+
+    <div class="actions">
+        <button><i class="fa-solid fa-pen"></i></button>
+        <button><i class="fa-solid fa-trash"></i></button>
+    </div>
+
+   </div>
+             
+    <div id="taskList"></div>
+</div>
+
+            
+    </main>
+
+</div>
+
+
+<!-- Add Task Modal -->
+<div class="modal" id="taskModal">
+
+  <div class="modal-content">
+
+    <span class="close">&times;</span>
+
+    <h2>Add New Task</h2>
+
+    <input type="text" id="taskTitle" placeholder="Task Title">
+
+    <textarea id="taskDesc" placeholder="Task Description"></textarea>
+
+    <input type="date" id="taskDate">
+
+    <button id="saveTask">Save Task</button>
+
+  </div>
+
+</div>
+<script src="js/script.js"></script>
+
+
+</body>
+
+</html>
