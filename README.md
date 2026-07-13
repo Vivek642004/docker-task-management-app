@@ -153,6 +153,21 @@ http://localhost:3000
 
 ---
 
+# 📸 Screenshots
+
+> Add screenshots of your dashboard here.
+
+Example:
+
+```
+screenshots/
+├── dashboard.png
+├── add-task.png
+└── dark-mode.png
+```
+
+---
+
 # 🚀 Future Enhancements
 
 - User Authentication
