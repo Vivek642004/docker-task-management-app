@@ -121,9 +121,9 @@ function updateCards() {
     const completed = document.querySelector(".cards .card:nth-child(2) h2");
     const pending = document.querySelector(".cards .card:nth-child(3) h2");
 
-    const allTasks = document.querySelectorAll(".task");
+    const allTasks = document.querySelectorAll(".task, .task-item");
 
-    const completedTasks = document.querySelectorAll(".task input:checked");
+    const completedTasks = document.querySelectorAll(".task input:checked", ".task-item input:checked");
 
     total.innerText = allTasks.length;
     completed.innerText = completedTasks.length;
@@ -194,3 +194,121 @@ themeBtn.addEventListener("click", () => {
     }
 
 });
+// ===============================
+// SIDEBAR NAVIGATION
+// ===============================
+
+const sidebarItems = document.querySelectorAll(".sidebar li");
+
+const dashboardBtn = document.getElementById("dashboardBtn");
+const allTasksBtn = document.getElementById("allTasksBtn");
+const addTaskBtn = document.getElementById("addTaskBtn");
+const completedBtn = document.getElementById("completedBtn");
+const pendingBtn = document.getElementById("pendingBtn");
+
+const cards = document.querySelector(".cards");
+const taskBox = document.querySelector(".task-box");
+
+function setActive(clickedItem) {
+    sidebarItems.forEach(item => {
+        item.classList.remove("active");
+    });
+
+    clickedItem.classList.add("active");
+}
+
+
+// Dashboard
+if (dashboardBtn) {
+    dashboardBtn.addEventListener("click", () => {
+
+        setActive(dashboardBtn);
+
+        cards.style.display = "grid";
+        taskBox.style.display = "block";
+
+        document.querySelectorAll(".task-item, .task").forEach(task => {
+            task.style.display = "";
+        });
+
+    });
+}
+
+
+// All Tasks
+if (allTasksBtn) {
+    allTasksBtn.addEventListener("click", () => {
+
+        setActive(allTasksBtn);
+
+        cards.style.display = "none";
+        taskBox.style.display = "block";
+
+        document.querySelectorAll(".task-item, .task").forEach(task => {
+            task.style.display = "";
+        });
+
+    });
+}
+
+
+// Add Task
+if (addTaskBtn) {
+    addTaskBtn.addEventListener("click", () => {
+
+        setActive(addTaskBtn);
+
+        modal.style.display = "flex";
+
+    });
+}
+
+
+// Completed Tasks
+if (completedBtn) {
+    completedBtn.addEventListener("click", () => {
+
+        setActive(completedBtn);
+
+        cards.style.display = "none";
+        taskBox.style.display = "block";
+
+        document.querySelectorAll(".task-item, .task").forEach(task => {
+
+            const status = task.querySelector(".status");
+
+            if (status && status.classList.contains("completed")) {
+                task.style.display = "";
+            } else {
+                task.style.display = "none";
+            }
+
+        });
+
+    });
+}
+
+
+// Pending Tasks
+if (pendingBtn) {
+    pendingBtn.addEventListener("click", () => {
+
+        setActive(pendingBtn);
+
+        cards.style.display = "none";
+        taskBox.style.display = "block";
+
+        document.querySelectorAll(".task-item, .task").forEach(task => {
+
+            const status = task.querySelector(".status");
+
+            if (status && status.classList.contains("pending")) {
+                task.style.display = "";
+            } else {
+                task.style.display = "none";
+            }
+
+        });
+
+    });
+}
